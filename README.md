@@ -2,13 +2,15 @@
 
 Square API Client
 
+Adding capability to manage your item library in Square. Right now you can only retrieve items and item variations (SKUs). But eventually you'll be able to update items in Square.
+
 https://connect.squareup.com
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'square'
+    gem 'square', 'https://github.com/namedpipe/square'
 
 And then execute:
 
@@ -59,6 +61,13 @@ Or install it yourself as:
 
     ## Bank Account API
     bank_account = me.bank_account '<bank-accout-id>'
+
+    ## Items API
+    items = me.items
+
+    ## Item API
+    item = me.item '<item_id>'
+
 
 ## Contributing
 
