@@ -1,4 +1,5 @@
-require 'cover_me'
+require 'simplecov'
 require 'rspec'
 require 'square'
 require 'helpers/webmock_helper'
+require 'rspec/its'

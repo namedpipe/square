@@ -5,6 +5,7 @@ module Square
       include Connections::Refunds
       include Connections::Settlements
       include Connections::BankAccounts
+      include Connections::Items
 
       attr_accessor :name, :email, :country_code, :language_code
 

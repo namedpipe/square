@@ -21,3 +21,6 @@ require 'square/connect/money'
 require 'square/connect/refund'
 require 'square/connect/tax'
 require 'square/connect/tender'
+
+require 'square/connect/item'
+require 'square/connect/item_variation'

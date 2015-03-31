@@ -9,10 +9,10 @@ describe Square::Connect::Connections::Payments do
       payments = mock_request 'me/payments', 'payments/list' do
         me.payments
       end
-      payments.should be_a Array
-      payments.should_not be_blank
+      expect(payments).to be_a Array
+      expect(payments).to_not be_blank
       payments.each do |payment|
-        payment.should be_a Square::Connect::Payment
+        expect(payment).to be_a Square::Connect::Payment
       end
     end
   end

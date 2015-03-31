@@ -4,16 +4,12 @@ module WebMockHelper
   def mock_request(path_or_uri, response_file, options = {})
     method = options[:method] || :get
     endpoint = endpoint_for(path_or_uri)
-    stub_request(method, endpoint).with(
-      request_for(method, options)
-    ).to_return(
+    stub_request(method, endpoint).with{ |req| request_for(method, options) }.to_return(
       response_for(response_file, options)
     )
     if block_given?
       response = yield
-      a_request(method, endpoint).with(
-        request_for(method, options)
-      ).should have_been_made.once
+      expect(a_request(method, endpoint).with{ |req| request_for(method, options) }).to have_been_made.once
       response
     end
   end
