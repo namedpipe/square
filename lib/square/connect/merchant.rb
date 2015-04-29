@@ -6,6 +6,8 @@ module Square
       include Connections::Settlements
       include Connections::BankAccounts
       include Connections::Items
+      include Connections::Categories
+      include Connections::Fees
 
       attr_accessor :name, :email, :country_code, :language_code
 
