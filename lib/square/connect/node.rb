@@ -1,7 +1,7 @@
 module Square
   module Connect
     class Node
-      attr_accessor :identifier, :endpoint, :access_token
+      attr_accessor :identifier, :endpoint, :access_token, :attributes
 
       def initialize(*args)
         attributes = args.extract_options!
@@ -19,6 +19,27 @@ module Square
         self.class.new attributes.merge(
           access_token: access_token
         )
+      end
+
+      def create
+        access_token_required!
+        attributes = handle_response do
+          access_token.post endpoint, header: { 'Content-Type' => 'application/json' }, body: self.to_json
+        end
+      end
+
+      def update
+        access_token_required!
+        attributes = handle_response do
+          access_token.put endpoint, header: { 'Content-Type' => 'application/json' }, body: self.to_json
+        end
+      end
+
+      def destroy
+        access_token_required!
+        attributes = handle_response do
+          access_token.delete endpoint
+        end
       end
 
       private

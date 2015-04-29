@@ -22,6 +22,15 @@ module Square
             access_token: access_token
           ).fetch
         end
+
+        def create_item(item_attributes={})
+          symbol_hash = ActiveSupport::HashWithIndifferentAccess.new item_attributes
+          access_token_required!          
+          Item.new(
+            symbol_hash.merge(access_token: access_token, merchant_id: identifier)
+          ).create
+        end
+
       end
     end
   end

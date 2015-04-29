@@ -7,6 +7,9 @@ module Square
         :created_at,
         :description,
         :name,
+        :visibility,
+        :category_id,
+        :category,
         :variations
       )
 
@@ -17,14 +20,15 @@ module Square
           else
             Merchant.me access_token
           end
-          self.creator = if attributes[:creator_id]
-            Merchant.new attributes[:creator_id], access_token
-          end
           self.created_at = if attributes[:created_at]
             Time.parse attributes[:created_at]
           end
           self.description = attributes[:description]
           self.name = attributes[:name]
+          self.visibility = attributes[:visibility]
+
+          self.category = Hash(attributes[:category]) if attributes[:category]
+          self.category_id = self.category[:id] if attributes[:category]
 
           self.variations = Array(attributes[:variations]).collect do |variation_attributes|
             ItemVariation.new variation_attributes
