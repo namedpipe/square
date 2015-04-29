@@ -1,11 +1,11 @@
 Gem::Specification.new do |gem|
   gem.name          = 'square'
   gem.version       = File.read('VERSION').delete("\n\r")
-  gem.authors       = ['nov']
-  gem.email         = ['nov@matake.jp']
+  gem.authors       = ['nov', 'namedpipe']
+  gem.email         = ['nov@matake.jp', 'mike@namedpipe.net']
   gem.description   = %q{Square API client}
   gem.summary       = %q{Square API Client}
-  gem.homepage      = 'https://github.com/nov/square'
+  gem.homepage      = 'https://github.com/namedpipe/square'
   gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
