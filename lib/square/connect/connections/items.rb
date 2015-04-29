@@ -31,6 +31,25 @@ module Square
           ).create
         end
 
+        def apply_fee_to_item(item_id, fee_id)
+          item = Item.new(
+            item_id,
+            merchant_id: identifier,
+            access_token: access_token
+          ).fetch
+          fee = Fee.new(
+            fee_id,
+            merchant_id: identifier,
+            access_token: access_token
+          ).fetch
+          if fee && item
+            item.endpoint = item.endpoint + "/fees/" + fee_id
+            item.update
+          else
+            return false
+          end
+        end
+
       end
     end
   end

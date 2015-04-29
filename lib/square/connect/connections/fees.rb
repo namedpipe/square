@@ -26,7 +26,7 @@ module Square
         def create_fee(item_attributes={})
           symbol_hash = ActiveSupport::HashWithIndifferentAccess.new item_attributes
           access_token_required!          
-          Item.new(
+          Fee.new(
             symbol_hash.merge(access_token: access_token, merchant_id: identifier)
           ).create
         end
