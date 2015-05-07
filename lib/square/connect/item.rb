@@ -17,6 +17,7 @@ module Square
         {description: description,
           name: name,
           visibility: visibility,
+          category_id: category_id,
           variations: variations.collect(&:attributes)}
       end
 
