@@ -29,6 +29,7 @@ module Square
 
           self.category = Hash(attributes[:category]) if attributes[:category]
           self.category_id = self.category[:id] if attributes[:category]
+          self.category_id = attributes[:category_id] if attributes[:category_id]
 
           self.variations = Array(attributes[:variations]).collect do |variation_attributes|
             ItemVariation.new variation_attributes

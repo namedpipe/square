@@ -23,7 +23,7 @@ module Square
 
       def create
         access_token_required!
-        attributes = handle_response do
+        handle_response do
           access_token.post endpoint, header: { 'Content-Type' => 'application/json' }, body: self.to_json
         end
       end
