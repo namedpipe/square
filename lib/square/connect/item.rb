@@ -13,6 +13,13 @@ module Square
         :variations
       )
 
+      def attributes
+        {description: description,
+          name: name,
+          visibility: visibility,
+          variations: variations.collect(&:attributes)}
+      end
+
       def initialize(*args)
         super do |attributes|
           self.merchant = if attributes[:merchant_id]

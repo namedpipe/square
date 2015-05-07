@@ -7,6 +7,10 @@ module Square
         self.amount = attributes[:amount]
         self.currency_code = attributes[:currency_code]
       end
+
+      def attributes
+        {amount: amount, currency_code: currency_code}
+      end
     end
   end
 end

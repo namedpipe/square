@@ -14,6 +14,13 @@ module Square
         self.price_money = attributes[:price_money]
         self.sku = attributes[:sku]
       end
+
+      def attributes
+        {sku: sku,
+          name: name,
+          pricing_type: pricing_type,
+          price_money: price_money.is_a?(Hash) ? price_money : price_money.attributes}
+      end
     end
   end
 end
