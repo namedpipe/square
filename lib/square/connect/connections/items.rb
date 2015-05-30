@@ -32,6 +32,7 @@ module Square
         end
 
         def apply_fee_to_item(item_id, fee_id)
+          access_token_required!
           item = Item.new(
             item_id,
             merchant_id: identifier,
