@@ -1,7 +1,7 @@
 module Square
   module Connect
     class Fee < Node
-      attr_accessor :name, :calculation_phase, :rate, :adjustment_type, :applies_to_custom_amounts, :type, :id, :inclusion_type, :enabled
+      attr_accessor :merchant, :name, :calculation_phase, :rate, :adjustment_type, :applies_to_custom_amounts, :type, :id, :inclusion_type, :enabled
 
       def initialize(*args)
         super do |attributes|
